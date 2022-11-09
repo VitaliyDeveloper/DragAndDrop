@@ -64,7 +64,10 @@ body {
 }
 
 .hold {
-  border: 5px solid #eee;
+  /* border: 5px solid #eee; */
+  border: none;
+  color: #fff;
+  background: linear-gradient(90deg, #649bed 0%, #c5dde8 100%);
 }
 
 .hide {
@@ -72,5 +75,7 @@ body {
 }
 
 .hovered {
-  border-top: 2px solid #8ed7ed;
+  /* border: 2px solid #eee; */
+  border-radius: 20px;
+  background: linear-gradient(90deg, #649bed 0%, #c5dde8 100%);
 }
