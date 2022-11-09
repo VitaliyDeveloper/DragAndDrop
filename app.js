@@ -1,14 +1,38 @@
-const item = document.querySelector(".item");
+const items = document.querySelectorAll(".item");
 const placeholders = document.querySelectorAll(".placeholder");
 
-item.addEventListener("dragstart", dragstart);
-item.addEventListener("dragend", dragend);
+// items.forEach((item) => {
+//   item.addEventListener("dragstart", dragstart);
+//   item.addEventListener("dragend", dragend);
+// });
+let el = ``;
+
+// if (items) {
+//   items.forEach((item) => {
+//     item.addEventListener("dragstart", dragstart);
+//     item.addEventListener("dragend", dragend);
+//     el = item;
+//   });
+// }
 
 for (const placeholder of placeholders) {
   placeholder.addEventListener("dragover", dragover);
   placeholder.addEventListener("dragenter", dragenter);
   placeholder.addEventListener("dragleave", dragleave);
   placeholder.addEventListener("drop", dragdrop);
+}
+
+for (const item of items) {
+  item.addEventListener("click", onclick);
+  item.addEventListener("dragstart", dragstart);
+  item.addEventListener("dragend", dragend);
+  // el = item;
+}
+
+function onclick(event) {
+  el = event.target;
+  console.log(el);
+  //   console.log(event.target);
 }
 
 function dragstart(event) {
@@ -36,7 +60,8 @@ function dragleave(event) {
 }
 
 function dragdrop(event) {
+  event.target.appendChild(el);
   event.target.classList.remove("hovered");
-  event.target.append(item);
+  //   console.log(event.target);
   //   console.log("dragdrop");
 }
